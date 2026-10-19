@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoMind System — Валентина Петрівська, бізнес-коуч для власників</title>
+  <meta name="description" content="Допомагаю власникам перейти на новий рівень лідерства, сформувати сильну управлінську команду та вибудувати систему управління, щоб бізнес міг масштабуватися без постійного ручного керування.">
+  <meta name="theme-color" content="#F5F5EE">
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Фірмовий знак «паросток» з логотипу, використовується в кількох місцях -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="sprout" viewBox="0 0 770 770">
+        <path d="M0 520 C120 390 250 282 395 246 C352 200 326 132 336 76 C440 150 562 176 770 164 L770 186 C652 250 522 282 444 302 C300 342 182 500 62 770 L0 770 Z"/>
+        <path d="M500 305 L660 260 C590 330 546 392 526 456 C504 410 494 360 500 305 Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ШАПКА -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="header__logo" aria-label="EcoMind System — на початок">
+        <img src="assets/brand/logo-ecomind-system.png" alt="EcoMind System" width="1386" height="542">
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основна навігація">
+        <a href="#approach" class="nav__link">Підхід</a>
+        <a href="#formats" class="nav__link">Формати</a>
+        <a href="#about" class="nav__link">Про мене</a>
+        <a href="#cases" class="nav__link">Кейси</a>
+        <a href="#consult" class="btn btn--dark nav__cta">Записатися на розбір</a>
+      </nav>
+
+      <a href="#consult" class="btn btn--dark btn--sm header__cta">Записатися на розбір</a>
+
+      <button class="burger" id="burger" aria-label="Відкрити меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 01 / ПЕРШИЙ ЕКРАН -->
+    <section class="hero">
+      <div class="hero__bgword" aria-hidden="true">MIND</div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow reveal"><span class="eyebrow__dot"></span>EcoMind System</p>
+
+          <h1 class="hero__title reveal">
+            Збільште <span class="mark">цінність</span> своєї компанії.
+            <span class="hero__title-muted">Зробіть її менш залежною від вас.</span>
+          </h1>
+
+          <p class="hero__lead reveal">
+            Допомагаю власникам перейти на новий рівень лідерства, сформувати сильну управлінську команду та вибудувати систему управління, щоб бізнес міг масштабуватися без постійного ручного керування й щоденного залучення власника в операційні питання.
+          </p>
+
+          <div class="hero__actions reveal">
+            <a href="#consult" class="btn btn--lime btn--lg">
+              Записатися на стратегічний розбір
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="hero__note">Для власників бізнесу, готових до наступного рівня розвитку компанії.</p>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <svg class="hero__sprout" aria-hidden="true"><use href="#sprout"/></svg>
+
+          <figure class="hero__photo">
+            <img src="assets/img/IMG_0456.jpg" alt="Валентина Петрівська, бізнес-коуч для власників бізнесу" width="1200" height="1800" fetchpriority="high">
+          </figure>
+
+          <div class="hero__levels" aria-label="Три рівні EcoMind">
+            <span class="level-chip">Власник</span>
+            <span class="level-chip__sep" aria-hidden="true"></span>
+            <span class="level-chip">Команда</span>
+            <span class="level-chip__sep" aria-hidden="true"></span>
+            <span class="level-chip">Система</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero__foot" aria-hidden="true">
+        <span class="section-index">01</span>
+        <span class="hero__scroll">Гортайте<span class="hero__scroll-line"></span></span>
+      </div>
+    </section>
+
+    <!-- 02 / ПРОБЛЕМА -->
+    <section class="problem section--dark" id="problem">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-index">02</span>
+          <span class="section-label">Проблема</span>
+        </header>
+
+        <div class="problem__grid">
+          <div class="problem__text">
+            <h2 class="h2 reveal">Бізнес зростає, але все досі тримається <span class="mark mark--dark">на вас?</span></h2>
+
+            <div class="problem__body reveal">
+              <p>Ви наймаєте людей, розвиваєте команду, впроваджуєте інструменти управління. Але важливі рішення повертаються до вас, керівники потребують постійного контролю, а операційні питання забирають час, який мав би бути присвячений розвитку.</p>
+              <p class="problem__accent">На певному етапі бізнес починає вимагати від власника іншої ролі.</p>
+              <p>Іноді обмеження — у команді чи процесах. Іноді — у способі мислення власника, його рішеннях і готовності передавати відповідальність.</p>
+            </div>
+          </div>
+
+          <div class="problem__flow reveal" aria-label="Симптоми">
+            <ol class="pains">
+              <li class="pain">
+                <span class="pain__num">01</span>
+                <span class="pain__text">Важливі рішення повертаються до вас</span>
+              </li>
+              <li class="pain">
+                <span class="pain__num">02</span>
+                <span class="pain__text">Керівники потребують постійного контролю</span>
+              </li>
+              <li class="pain">
+                <span class="pain__num">03</span>
+                <span class="pain__text">Операційка забирає час, призначений для розвитку</span>
+              </li>
+            </ol>
+            <div class="pains__node" aria-hidden="true"><span>Ви</span></div>
+          </div>
+        </div>
+
+        <blockquote class="problem__quote reveal">
+          <svg class="problem__quote-sprout" aria-hidden="true"><use href="#sprout"/></svg>
+          <p><span class="mark mark--dark">Власник — дзеркало бізнесу.</span> А наступний рівень компанії часто починається зі зміни його ролі.</p>
+        </blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
