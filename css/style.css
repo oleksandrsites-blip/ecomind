@@ -90,6 +90,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   border-radius: 50%;
   background: var(--lime);
   box-shadow: 0 0 0 6px var(--lime-tint);
+  animation: dot-pulse 2.6s ease-in-out infinite;
 }
 
 /* Маркер-підкреслення лаймом */
@@ -320,6 +321,9 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   top: -16%;
   fill: var(--lime);
   z-index: 0;
+  /* хвіст «паростка» плавно розчиняється, без різкого обрізу */
+  -webkit-mask-image: linear-gradient(40deg, transparent 22%, #000 48%);
+          mask-image: linear-gradient(40deg, transparent 22%, #000 48%);
   animation: sprout-in 1.4s var(--ease) both .2s;
 }
 .hero__photo {
@@ -558,6 +562,10 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 4px var(--lime-tint); }
+  50%      { transform: scale(1.15); box-shadow: 0 0 0 9px rgba(234, 240, 196, .55); }
+}
 @keyframes pulse {
   0%   { transform: scale(.9); opacity: .6; }
   100% { transform: scale(1.35); opacity: 0; }
@@ -572,6 +580,24 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 /* =========================================================
    Адаптив
    ========================================================= */
+
+/* Десктоп: перший екран повністю вміщується у вікно без скролу */
+@media (min-width: 901px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(92px, 12vh, 124px) 0 clamp(16px, 2.5vh, 28px);
+  }
+  .hero__content { gap: clamp(14px, 2.6vh, 26px); }
+  .hero__title { font-size: clamp(34px, min(4.4vw, 6.6vh), 64px); }
+  .hero__actions { margin-top: 0; gap: 12px; }
+  .btn--lg { min-height: clamp(54px, 7vh, 64px); }
+  .hero__visual { max-width: min(460px, calc((100svh - 230px) * .74)); }
+  .hero__foot { margin-top: clamp(16px, 3vh, 40px); }
+}
 @media (max-width: 1080px) {
   .nav { gap: 24px; }
   .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
