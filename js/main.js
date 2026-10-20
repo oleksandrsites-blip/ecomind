@@ -43,6 +43,23 @@
     }, { passive: true });
   }
 
+  // Сигнали на схемах «Було / Стало»: запускаються по черзі, коли схема вже намальована
+  const startSignals = (card) => {
+    if (calm.matches) return;
+    card.querySelectorAll('.shift__signals').forEach((group) => {
+      const motions = group.querySelectorAll('animateMotion');
+      if (!motions.length || typeof motions[0].beginElement !== 'function') return;
+      group.classList.add('is-running');
+      motions.forEach((m, i) => {
+        const offset = (parseFloat(m.getAttribute('dur')) * 1000 / motions.length) * i;
+        setTimeout(() => {
+          m.beginElement();
+          m.parentNode.style.opacity = '1';
+        }, 1900 + offset);
+      });
+    });
+  };
+
   // Поява решти блоків при скролі
   const items = document.querySelectorAll('main > :not(.hero) .reveal');
   if (!('IntersectionObserver' in window)) {
@@ -53,6 +70,7 @@
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
+      startSignals(entry.target);
       io.unobserve(entry.target);
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });

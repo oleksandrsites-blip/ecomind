@@ -171,6 +171,15 @@
                 <circle cx="120" cy="10" r="5"/><circle cx="120" cy="130" r="5"/>
               </g>
               <circle class="shift__core" cx="120" cy="70" r="13"/>
+              <!-- «рішення», що весь час стікаються до власника -->
+              <g class="shift__signals">
+                <circle r="3"><animateMotion begin="indefinite" dur="2.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M22 28 L120 70"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="2.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M218 112 L120 70"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="2.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M120 130 L120 70"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="2.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M218 28 L120 70"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="2.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M22 112 L120 70"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="2.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M120 10 L120 70"/></circle>
+              </g>
             </svg>
             <p class="shift__label">Було</p>
             <h3 class="shift__title">Бізнес тримається на власнику</h3>
@@ -198,6 +207,13 @@
                 <circle cx="150" cy="122" r="5"/><circle cx="210" cy="122" r="5"/>
               </g>
               <circle class="shift__core" cx="120" cy="18" r="10"/>
+              <!-- імпульс від власника розходиться через команду в систему -->
+              <g class="shift__signals">
+                <circle r="3"><animateMotion begin="indefinite" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M120 18 L60 70 L30 122"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M120 18 L180 70 L210 122"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M120 18 L60 70 L90 122"/></circle>
+                <circle r="3"><animateMotion begin="indefinite" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines=".45 0 .55 1" path="M120 18 L180 70 L150 122"/></circle>
+              </g>
             </svg>
             <p class="shift__label">Стало</p>
             <h3 class="shift__title">Власник керує розвитком бізнесу</h3>
@@ -208,17 +224,17 @@
         <!-- Формула росту -->
         <div class="formula reveal">
           <ol class="formula__steps draw">
-            <li class="formula__step">Новий рівень власника</li>
+            <li class="formula__step">Новий рівень<br class="formula__br"> власника</li>
             <li class="formula__link" aria-hidden="true">
               <svg viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H96" pathLength="1"/></svg>
               <span class="formula__head"></span>
             </li>
-            <li class="formula__step">сильна команда</li>
+            <li class="formula__step">сильна<br class="formula__br"> команда</li>
             <li class="formula__link" aria-hidden="true">
               <svg viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H96" pathLength="1"/></svg>
               <span class="formula__head"></span>
             </li>
-            <li class="formula__step formula__step--final"><span class="mark">бізнес, здатний зростати.</span></li>
+            <li class="formula__step formula__step--final"><span class="mark">бізнес, здатний<br class="formula__br"> зростати.</span></li>
           </ol>
           <p class="formula__note">Це створює передумови для збільшення цінності компанії та зменшення її залежності від щоденної участі власника.</p>
         </div>
