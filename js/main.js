@@ -43,28 +43,20 @@
     }, { passive: true });
   }
 
-  // Підхід EcoMind: активний рівень підсвічує своє коло на схемі.
-  // Рівні перемикаються самі, доки людина не вибере рівень наведенням чи фокусом.
+  // Підхід EcoMind: наведення чи фокус на рівні тихо підсвічує його коло на схемі
   const approachBody = document.querySelector('.approach__body');
   if (approachBody) {
     const levels = [...approachBody.querySelectorAll('.level')];
-    let current = 1;
-    let timer = null;
     const setLevel = (n) => {
-      current = n;
-      approachBody.dataset.active = String(n);
-      levels.forEach((el) => el.classList.toggle('is-active', el.dataset.level === String(n)));
+      approachBody.dataset.active = n;
+      levels.forEach((el) => el.classList.toggle('is-active', el.dataset.level === n));
     };
-    const stopAuto = () => { clearInterval(timer); timer = null; };
     levels.forEach((el) => {
-      const pick = () => { stopAuto(); setLevel(Number(el.dataset.level)); };
-      el.addEventListener('mouseenter', pick);
-      el.addEventListener('focus', pick);
-      el.addEventListener('click', pick);
+      el.addEventListener('mouseenter', () => setLevel(el.dataset.level));
+      el.addEventListener('focus', () => setLevel(el.dataset.level));
+      el.addEventListener('mouseleave', () => setLevel('0'));
+      el.addEventListener('blur', () => setLevel('0'));
     });
-    if (!calm.matches) {
-      timer = setInterval(() => setLevel(current % levels.length + 1), 3500);
-    }
   }
 
   // Сигнали на схемах «Було / Стало»: запускаються по черзі, коли схема вже намальована

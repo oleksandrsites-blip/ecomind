@@ -791,7 +791,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 
 /* ---- Схема-орбіта ---- */
-.orbit svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; overflow: visible; }
+.orbit svg { display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto; overflow: visible; }
 .orbit__ring {
   fill: none;
   stroke: rgba(245, 245, 238, .28);
@@ -801,13 +801,10 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .orbit__band {
   fill: none;
   stroke: var(--lime);
-  stroke-width: 34;
+  stroke-width: 26;
   opacity: 0;
   transition: opacity .6s var(--ease);
 }
-.orbit__dot { fill: var(--on-dark); transition: fill .6s var(--ease); }
-.orbit__spin { transform-origin: 250px 250px; animation: orbit-spin 40s linear infinite; }
-.orbit__spin--rev { animation-duration: 28s; animation-direction: reverse; }
 .orbit__label {
   font-family: var(--font-body);
   font-size: 11px;
@@ -819,20 +816,16 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   transition: fill .6s var(--ease);
 }
 .orbit__core { fill: var(--lime); transform-box: fill-box; transform-origin: center; transition: transform .6s var(--ease); }
-.orbit__glow { fill: none; stroke: var(--lime); stroke-width: 14; opacity: 0; transition: opacity .6s var(--ease); }
 .orbit__label--core { fill: var(--ink); font-size: 12px; letter-spacing: .14em; }
 
 /* активний рівень підсвічує своє коло */
 [data-active="2"] .orbit__level--2 .orbit__band,
-[data-active="3"] .orbit__level--3 .orbit__band { opacity: .12; }
+[data-active="3"] .orbit__level--3 .orbit__band { opacity: .08; }
 [data-active="2"] .orbit__level--2 .orbit__ring,
 [data-active="3"] .orbit__level--3 .orbit__ring { stroke: var(--lime); stroke-width: 2; }
-[data-active="2"] .orbit__level--2 .orbit__dot,
-[data-active="3"] .orbit__level--3 .orbit__dot { fill: var(--lime); }
 [data-active="2"] .orbit__level--2 .orbit__label,
 [data-active="3"] .orbit__level--3 .orbit__label { fill: var(--lime-tint); }
-[data-active="1"] .orbit__glow { opacity: .3; animation: core-pulse 2.4s ease-in-out infinite; }
-[data-active="1"] .orbit__core { transform: scale(1.06); }
+[data-active="1"] .orbit__core { transform: scale(1.05); }
 
 /* ---- Список рівнів ---- */
 .levels { border-top: 1px solid var(--on-dark-line); }
@@ -840,10 +833,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   position: relative;
   padding: clamp(22px, 2.6vw, 32px) 0 clamp(22px, 2.6vw, 32px) 28px;
   border-bottom: 1px solid var(--on-dark-line);
-  cursor: pointer;
   outline: none;
-  opacity: .72;
-  transition: opacity .5s var(--ease);
 }
 .level::before {
   content: "";
@@ -855,7 +845,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   transform-origin: top;
   transition: transform .6s var(--ease);
 }
-.level.is-active, .level:focus-visible { opacity: 1; }
 .level.is-active::before { transform: scaleY(1); }
 
 .level__tag {
@@ -927,11 +916,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 @keyframes core-glow {
   0%, 100% { transform: scale(1);    stroke: rgba(175, 203, 31, 0);   stroke-width: 0; }
   50%      { transform: scale(1.1);  stroke: rgba(175, 203, 31, .35); stroke-width: 10px; }
-}
-@keyframes orbit-spin { to { transform: rotate(360deg); } }
-@keyframes core-pulse {
-  0%, 100% { opacity: .3; }
-  50%      { opacity: .08; }
 }
 @keyframes pulse {
   0%   { transform: scale(.9); opacity: .6; }
