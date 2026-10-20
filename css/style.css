@@ -374,38 +374,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 .level-chip__sep { width: 14px; height: 1px; background: var(--ink); opacity: .35; }
 
-.hero__foot {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: clamp(48px, 7vw, 96px);
-  color: var(--ink-soft);
-}
-.hero__scroll {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-}
-.hero__scroll-line {
-  position: relative;
-  width: 56px; height: 1px;
-  background: var(--ink-line);
-  overflow: hidden;
-}
-.hero__scroll-line::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--ink);
-  animation: scroll-line 2.2s var(--ease) infinite;
-}
-
 /* =========================================================
    02 / ПРОБЛЕМА
    ========================================================= */
@@ -568,10 +536,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   from { stroke-dashoffset: 1; }
   to   { stroke-dashoffset: 0; }
 }
-@keyframes scroll-line {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
 @keyframes dot-pulse {
   0%, 100% { transform: scale(1);    box-shadow: 0 0 0 4px var(--lime-tint); }
   50%      { transform: scale(1.15); box-shadow: 0 0 0 9px rgba(234, 240, 196, .55); }
@@ -605,7 +569,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   .hero__title { font-size: clamp(34px, min(4.4vw, 6.6vh), 64px); }
   .hero__actions { margin-top: 0; gap: 12px; }
   .btn--lg { min-height: clamp(54px, 7vh, 64px); }
-  .hero__foot { margin-top: clamp(16px, 3vh, 40px); }
 }
 @media (max-width: 1080px) {
   .nav { gap: 24px; }
@@ -649,7 +612,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   .hero__photo img { object-position: 52% 30%; }
   .hero__edge, .hero__edge-dot { display: none; }
   .hero__levels { right: auto; left: 50%; transform: translateX(-50%); bottom: 20px; }
-  .hero__foot { display: none; }
   .hero { padding-bottom: 0; }
 
   .problem__grid { grid-template-columns: 1fr; }
