@@ -875,16 +875,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .js .orbit .orbit__level--3 .orbit__ring { transition-delay: .6s, 0s, 0s; }
 .js .orbit.is-visible .orbit__ring { stroke-dashoffset: 0; }
 
-.approach__note {
-  max-width: 980px;
-  margin-top: clamp(48px, 6vw, 80px);
-  font-family: var(--font-display);
-  font-size: clamp(22px, 2.6vw, 36px);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -.015em;
-}
-
 /* ---------- Анімації ---------- */
 .js .reveal {
   opacity: 0;
