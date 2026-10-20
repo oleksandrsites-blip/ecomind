@@ -43,6 +43,30 @@
     }, { passive: true });
   }
 
+  // Підхід EcoMind: активний рівень підсвічує своє коло на схемі.
+  // Рівні перемикаються самі, доки людина не вибере рівень наведенням чи фокусом.
+  const approachBody = document.querySelector('.approach__body');
+  if (approachBody) {
+    const levels = [...approachBody.querySelectorAll('.level')];
+    let current = 1;
+    let timer = null;
+    const setLevel = (n) => {
+      current = n;
+      approachBody.dataset.active = String(n);
+      levels.forEach((el) => el.classList.toggle('is-active', el.dataset.level === String(n)));
+    };
+    const stopAuto = () => { clearInterval(timer); timer = null; };
+    levels.forEach((el) => {
+      const pick = () => { stopAuto(); setLevel(Number(el.dataset.level)); };
+      el.addEventListener('mouseenter', pick);
+      el.addEventListener('focus', pick);
+      el.addEventListener('click', pick);
+    });
+    if (!calm.matches) {
+      timer = setInterval(() => setLevel(current % levels.length + 1), 3500);
+    }
+  }
+
   // Сигнали на схемах «Було / Стало»: запускаються по черзі, коли схема вже намальована
   const startSignals = (card) => {
     if (calm.matches) return;

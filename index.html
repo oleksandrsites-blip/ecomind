@@ -251,29 +251,49 @@
           <p class="approach__sub reveal">Працюємо з трьома взаємопов’язаними рівнями.</p>
         </div>
 
-        <div class="levels reveal">
-          <span class="levels__axis" aria-hidden="true"></span>
+        <div class="approach__body" data-active="1">
 
-          <article class="level">
-            <span class="level__icon" aria-hidden="true"><svg><use href="#sprout"/></svg><b>EM</b></span>
-            <p class="level__tag">Рівень 1 · Власник</p>
-            <h3 class="level__name">Mind</h3>
-            <p class="level__text">Мислення, роль, рішення та перехід до стратегічного лідерства.</p>
-          </article>
+          <!-- Схема: власник у центрі, навколо команда, зовні система -->
+          <div class="orbit reveal" aria-hidden="true">
+            <svg viewBox="0 0 500 500">
+              <g class="orbit__level orbit__level--3" data-level="3">
+                <circle class="orbit__band" cx="250" cy="250" r="232"/>
+                <circle class="orbit__ring" cx="250" cy="250" r="232" pathLength="1"/>
+                <g class="orbit__spin orbit__spin--slow"><circle class="orbit__dot" cx="250" cy="18" r="5"/><circle class="orbit__dot" cx="250" cy="482" r="3.5"/></g>
+                <text class="orbit__label" x="250" y="58">Система</text>
+              </g>
+              <g class="orbit__level orbit__level--2" data-level="2">
+                <circle class="orbit__band" cx="250" cy="250" r="152"/>
+                <circle class="orbit__ring" cx="250" cy="250" r="152" pathLength="1"/>
+                <g class="orbit__spin orbit__spin--rev"><circle class="orbit__dot" cx="402" cy="250" r="4.5"/></g>
+                <text class="orbit__label" x="250" y="136">Команда</text>
+              </g>
+              <g class="orbit__level orbit__level--1" data-level="1">
+                <circle class="orbit__glow" cx="250" cy="250" r="66"/>
+                <circle class="orbit__core" cx="250" cy="250" r="62"/>
+                <text class="orbit__label orbit__label--core" x="250" y="255">Власник</text>
+              </g>
+            </svg>
+          </div>
 
-          <article class="level">
-            <span class="level__icon" aria-hidden="true"><svg><use href="#sprout"/></svg><b>ET</b></span>
-            <p class="level__tag">Рівень 2 · Команда</p>
-            <h3 class="level__name">EcoTeam</h3>
-            <p class="level__text">Керівники, відповідальність, взаємодія та спільний результат.</p>
-          </article>
-
-          <article class="level">
-            <span class="level__icon" aria-hidden="true"><svg><use href="#sprout"/></svg><b>ES</b></span>
-            <p class="level__tag">Рівень 3 · Система</p>
-            <h3 class="level__name">EcoSystem</h3>
-            <p class="level__text">Структура, процеси, показники й контрольні точки, які забезпечують керованість бізнесу.</p>
-          </article>
+          <!-- Рівні -->
+          <div class="levels reveal">
+            <article class="level is-active" data-level="1" tabindex="0">
+              <p class="level__tag">Рівень 1 · Власник</p>
+              <h3 class="level__name">Mind</h3>
+              <p class="level__text">Мислення, роль, рішення та перехід до стратегічного лідерства.</p>
+            </article>
+            <article class="level" data-level="2" tabindex="0">
+              <p class="level__tag">Рівень 2 · Команда</p>
+              <h3 class="level__name">EcoTeam</h3>
+              <p class="level__text">Керівники, відповідальність, взаємодія та спільний результат.</p>
+            </article>
+            <article class="level" data-level="3" tabindex="0">
+              <p class="level__tag">Рівень 3 · Система</p>
+              <h3 class="level__name">EcoSystem</h3>
+              <p class="level__text">Структура, процеси, показники й контрольні точки, які забезпечують керованість бізнесу.</p>
+            </article>
+          </div>
         </div>
 
         <p class="approach__note reveal">Інструменти самі по собі не гарантують змін. Важливо, щоб власник, команда й система працювали <span class="mark mark--dark">узгоджено.</span></p>
