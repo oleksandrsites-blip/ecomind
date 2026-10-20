@@ -288,38 +288,63 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   width: 46vw;
   max-width: 820px;
 }
+/* Лівий край фото — вигин «паростка» з лого (clipPath #photo-clip в index.html) */
 .hero__photo {
   position: absolute;
   inset: 0;
   margin: 0;
-  border-radius: clamp(28px, 3.5vw, 56px) 0 0 clamp(28px, 3.5vw, 56px);
   overflow: hidden;
   background: var(--bg-2);
+  -webkit-clip-path: url(#photo-clip);
+          clip-path: url(#photo-clip);
 }
 .hero__photo img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: 50% 0;
-  transform: scale(1.03);
+  transform: translateY(var(--parallax, 0px)) scale(1.06);
   transform-origin: 50% 0;
-  transition: transform 1.6s var(--ease);
+  animation: photo-in 1.8s var(--ease) .35s backwards;
 }
-.hero__visual:hover .hero__photo img { transform: scale(1.06); }
+/* «шторка» кольору бренду, що відкриває фото вздовж вигину */
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--lime);
+  transform: translateX(101%);
+  animation: curtain 1.3s cubic-bezier(.76, 0, .24, 1) .15s backwards;
+}
 
-/* «паросток» з лого заходить з фону на фото */
-.hero__sprout {
+/* Лаймова лінія вздовж вигину, з «вузлом» угорі */
+.hero__edge {
   position: absolute;
   z-index: 2;
-  left: -120px;
-  bottom: -3%;
-  width: clamp(200px, 17vw, 260px);
-  height: auto;
-  aspect-ratio: 1;
-  fill: var(--lime);
-  -webkit-mask-image: linear-gradient(40deg, transparent 18%, #000 46%);
-          mask-image: linear-gradient(40deg, transparent 18%, #000 46%);
-  animation: sprout-in 1.4s var(--ease) both .2s;
+  top: 0; bottom: 0;
+  left: -18px;
+  width: 100%; height: 100%;
+  overflow: visible;
   pointer-events: none;
+}
+.hero__edge path {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: .45;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: draw-line 1.6s var(--ease) .9s backwards;
+}
+.hero__edge-dot {
+  position: absolute;
+  z-index: 3;
+  top: -7px;
+  left: calc(22% - 18px - 7px);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 5px var(--lime-tint);
+  animation: dot-pulse 2.6s ease-in-out 2.2s infinite;
 }
 
 .hero__levels {
@@ -531,9 +556,17 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 .js .reveal.is-visible { opacity: 1; transform: none; }
 
-@keyframes sprout-in {
-  from { opacity: 0; transform: translate(-6%, 8%) rotate(-6deg); }
-  to   { opacity: 1; transform: none; }
+@keyframes curtain {
+  from { transform: translateX(0); }
+  to   { transform: translateX(101%); }
+}
+@keyframes photo-in {
+  from { transform: translateY(0) scale(1.2); }
+  to   { transform: translateY(0) scale(1.06); }
+}
+@keyframes draw-line {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
 }
 @keyframes scroll-line {
   0%   { transform: translateX(-100%); }
@@ -612,9 +645,9 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
     height: min(118vw, 620px);
     margin: 40px var(--gutter) 40px;
   }
-  .hero__photo { border-radius: var(--radius); }
+  .hero__photo { border-radius: var(--radius); -webkit-clip-path: none; clip-path: none; }
   .hero__photo img { object-position: 52% 30%; }
-  .hero__sprout { left: -36px; bottom: -28px; width: 150px; }
+  .hero__edge, .hero__edge-dot { display: none; }
   .hero__levels { right: auto; left: 50%; transform: translateX(-50%); bottom: 20px; }
   .hero__foot { display: none; }
   .hero { padding-bottom: 0; }

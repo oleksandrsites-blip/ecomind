@@ -27,6 +27,22 @@
     setTimeout(() => el.classList.add('is-visible'), 30);
   });
 
+  // Легкий паралакс фото на першому екрані (лише десктоп і без «зменшення руху»)
+  const heroImg = document.querySelector('.hero__photo img');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const wide = window.matchMedia('(min-width: 901px)');
+  if (heroImg) {
+    let ticking = false;
+    const parallax = () => {
+      ticking = false;
+      const y = (!calm.matches && wide.matches) ? Math.min(window.scrollY, window.innerHeight) * 0.12 : 0;
+      heroImg.style.setProperty('--parallax', `${y.toFixed(1)}px`);
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(parallax); }
+    }, { passive: true });
+  }
+
   // Поява решти блоків при скролі
   const items = document.querySelectorAll('main > :not(.hero) .reveal');
   if (!('IntersectionObserver' in window)) {

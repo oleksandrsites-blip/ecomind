@@ -24,6 +24,10 @@
         <path d="M0 520 C120 390 250 282 395 246 C352 200 326 132 336 76 C440 150 562 176 770 166 C652 250 522 282 444 302 C300 342 182 500 62 770 L0 770 Z"/>
         <path d="M500 305 L660 260 C590 330 546 392 526 456 C504 410 494 360 500 305 Z"/>
       </symbol>
+      <!-- лівий край фото на першому екрані повторює вигин «паростка» -->
+      <clipPath id="photo-clip" clipPathUnits="objectBoundingBox">
+        <path d="M0.22,0 L1,0 L1,1 L0,1 C0,0.6 0.04,0.22 0.22,0 Z"/>
+      </clipPath>
     </defs>
   </svg>
 
@@ -80,7 +84,10 @@
       </div>
 
       <div class="hero__visual reveal">
-        <svg class="hero__sprout" aria-hidden="true"><use href="#sprout"/></svg>
+        <svg class="hero__edge" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M22 0 C4 22 0 60 0 100" pathLength="1"/>
+        </svg>
+        <span class="hero__edge-dot" aria-hidden="true"></span>
 
         <figure class="hero__photo">
           <img src="assets/img/IMG_0576.jpg" alt="Валентина Петрівська, бізнес-коуч для власників бізнесу" width="2200" height="1467" fetchpriority="high">
