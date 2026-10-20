@@ -20,8 +20,8 @@
   --lime-deep: #8FA816;
   --lime-tint: #EAF0C4;
   /* приглушений глибокий зелений — темніший відтінок акценту, фон блоку 02 */
-  --moss: #5B6B35;
-  --moss-deep: #4E5C2D;
+  --moss: #55652F;
+  --moss-deep: #4A582A;
 
   --on-dark: #F5F5EE;
   --on-dark-soft: rgba(245, 245, 238, .8);
@@ -401,7 +401,11 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   gap: 20px;
   max-width: 600px;
   margin-top: clamp(28px, 3vw, 40px);
-  color: var(--on-dark-soft);
+  /* на зеленому — суцільний світлий колір і щільніше накреслення для читабельності */
+  color: var(--on-dark);
+  font-size: clamp(16px, 1.25vw, 18px);
+  font-weight: 500;
+  line-height: 1.7;
 }
 .problem__accent {
   padding-left: 20px;
