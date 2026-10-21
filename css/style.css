@@ -512,6 +512,10 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   line-height: 1.25;
   letter-spacing: -.015em;
 }
+/* у блоці 02 цитата стоїть у правій колонці під «Ви» — колонки рівні, без пустоти */
+.problem__quote--side { margin-top: 36px; padding: clamp(24px, 2.6vw, 36px); }
+.problem__quote--side p { font-size: clamp(19px, 1.7vw, 24px); }
+.problem__quote--side .problem__quote-sprout { width: 240px; height: 240px; right: -50px; bottom: -90px; }
 .problem__quote-sprout {
   position: absolute;
   right: -60px; bottom: -120px;
