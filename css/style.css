@@ -182,6 +182,27 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
 .nav__cta { display: none; }
 
+/* соцмережі в шапці — тонкі кружечки в тон меню */
+.header__social {
+  display: flex;
+  gap: 6px;
+  padding-left: 22px;
+  border-left: 1px solid var(--ink-line);
+}
+.nav__social { display: none; }
+.hsocial {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--ink-line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background-color .35s var(--ease), border-color .35s var(--ease);
+}
+.hsocial:hover { background: var(--lime); border-color: var(--lime); }
+.hsocial svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hsocial svg .fill { fill: currentColor; stroke: none; }
+
 .burger {
   display: none;
   position: relative;
@@ -1537,6 +1558,9 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 
 @media (max-width: 900px) {
   .header__cta { display: none; }
+  .header__social { display: none; }
+  .nav__social { display: flex; gap: 10px; margin-top: 20px; }
+  .nav__social .hsocial { width: 48px; height: 48px; }
   .burger { display: block; position: relative; z-index: 2; }
 
   .nav {
