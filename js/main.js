@@ -76,6 +76,29 @@
     });
   };
 
+  // Кейси: вкладки перемикають картку кейсу (клік або стрілки на клавіатурі)
+  const caseTabs = [...document.querySelectorAll('.case-tab')];
+  const openCase = (tab, focus) => {
+    caseTabs.forEach((t) => {
+      const on = t === tab;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      panel.hidden = !on;
+      panel.classList.toggle('is-active', on);
+    });
+    if (focus) tab.focus();
+  };
+  caseTabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => openCase(tab));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const next = caseTabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + caseTabs.length) % caseTabs.length];
+      openCase(next, true);
+    });
+  });
+
   // Цифри в «Про мене» плавно нараховуються від нуля
   const countUp = (root) => {
     if (calm.matches) return;
