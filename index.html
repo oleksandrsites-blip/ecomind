@@ -27,6 +27,10 @@
       <!-- лівий край фото на першому екрані повторює вигин «паростка» -->
       <!-- заокруглена маска для іконок рівнів на схемі -->
       <clipPath id="badge-clip"><rect x="-20" y="-20" width="40" height="40" rx="11"/></clipPath>
+      <!-- дзеркальний вигин для фото в блоці «Про мене» -->
+      <clipPath id="photo-clip-right" clipPathUnits="objectBoundingBox">
+        <path d="M0.78,0 L0,0 L0,1 L1,1 C1,0.6 0.96,0.22 0.78,0 Z"/>
+      </clipPath>
       <clipPath id="photo-clip" clipPathUnits="objectBoundingBox">
         <path d="M0.22,0 L1,0 L1,1 L0,1 C0,0.6 0.04,0.22 0.22,0 Z"/>
       </clipPath>
@@ -351,6 +355,50 @@
 
             <p class="formats__note reveal">Це різні способи роботи, які обираються відповідно до потреб бізнесу.</p>
           </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 06 / ПРО МЕНЕ -->
+    <section class="about section--moss" id="about">
+      <div class="container">
+
+        <div class="about__grid">
+          <div class="about__visual reveal">
+            <figure class="about__photo">
+              <img src="assets/img/IMG_0680.jpg" alt="Валентина Петрівська" width="1200" height="1800" loading="lazy">
+            </figure>
+            <svg class="about__edge" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M78 0 C96 22 100 60 100 100"/>
+            </svg>
+            <span class="about__edge-dot" aria-hidden="true"></span>
+          </div>
+
+          <div class="about__content">
+            <h2 class="h2 about__name reveal">Валентина Петрівська</h2>
+            <p class="about__role reveal">Бізнес-коуч для власників, командний коуч, авторка EcoMind System.</p>
+            <p class="about__lead reveal">Допомагаю власникам збільшувати цінність бізнесу, роблячи його менш залежним від їхньої щоденної залученості.</p>
+            <p class="about__text reveal">Поєдную коучингову роботу з власниками й командами з практичним досвідом побудови систем управління.</p>
+
+            <div class="about__stats reveal">
+              <div class="stat">
+                <p class="stat__value"><b data-count="10">10</b> років</p>
+                <p class="stat__label">роботи всередині бізнесу</p>
+              </div>
+              <div class="stat">
+                <p class="stat__value"><b data-count="8">8</b> років</p>
+                <p class="stat__label">роботи з розвитком управління й команд</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Шлях -->
+        <div class="about__story">
+          <p class="reveal">За 18 років професійного шляху я пройшла шлях від виконавиці до директорки компанії, від системного управління до бізнес-коучингу.</p>
+          <p class="reveal">Практика показала: інструменти самі по собі не змінюють бізнес. Зміни починаються з нового мислення власника й команди, яке відкриває нові можливості для дій і розвитку.</p>
+          <p class="reveal">Так народився <span class="mark mark--dark">EcoMind System</span> — підхід, що поєднує роботу з мисленням власника, розвитком команди та інструментами системного управління.</p>
         </div>
 
       </div>

@@ -985,6 +985,130 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   box-shadow: 0 0 0 5px var(--lime-tint);
 }
 
+/* =========================================================
+   06 / ПРО МЕНЕ
+   ========================================================= */
+.about {
+  position: relative;
+  z-index: 4;
+  margin-top: calc(-1 * clamp(28px, 4vw, 56px));
+  padding: var(--section-y) 0;
+  border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(48px, 7vw, 112px);
+  align-items: stretch;
+}
+
+/* фото з дзеркальним вигином «паростка» — перегукується з першим екраном */
+.about__visual { position: relative; min-height: 520px; }
+.about__photo {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--moss-deep);
+  -webkit-clip-path: url(#photo-clip-right);
+          clip-path: url(#photo-clip-right);
+}
+.about__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 20%; }
+.about__edge {
+  position: absolute;
+  top: 0; left: 18px;
+  width: 100%; height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.about__edge path {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: .45;
+  stroke-linecap: round;
+}
+.about__edge-dot {
+  position: absolute;
+  top: -7px;
+  left: calc(78% + 18px - 7px);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 5px rgba(175, 203, 31, .25);
+}
+
+.about__content { display: flex; flex-direction: column; justify-content: center; }
+.about__name { margin-bottom: 18px; }
+.about__role {
+  margin-bottom: clamp(28px, 3vw, 40px);
+  font-size: clamp(15px, 1.15vw, 17px);
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--lime-tint);
+}
+.about__lead {
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 1.9vw, 26px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+}
+.about__text {
+  max-width: 560px;
+  font-size: clamp(16px, 1.25vw, 18px);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(36px, 4vw, 56px);
+  border-top: 1px solid var(--on-dark-line);
+}
+.stat { padding: clamp(20px, 2.4vw, 28px) clamp(16px, 2vw, 28px) 0 0; }
+.stat + .stat { padding-left: clamp(16px, 2vw, 28px); border-left: 1px solid var(--on-dark-line); }
+.stat__value {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 500;
+  line-height: 1;
+}
+.stat__value b {
+  margin-right: 6px;
+  font-size: clamp(56px, 6vw, 88px);
+  font-weight: 600;
+  letter-spacing: -.04em;
+  color: var(--lime);
+  font-variant-numeric: tabular-nums;
+}
+.stat__label { margin-top: 12px; font-size: 15px; font-weight: 500; line-height: 1.5; }
+
+/* Шлях — три колонки на всю ширину */
+.about__story {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  margin-top: clamp(64px, 8vw, 112px);
+}
+.about__story p {
+  position: relative;
+  padding-top: 24px;
+  border-top: 1px solid var(--on-dark-line);
+  font-size: clamp(16px, 1.2vw, 17px);
+  font-weight: 500;
+  line-height: 1.7;
+}
+.about__story p::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 48px; height: 2px;
+  background: var(--lime);
+}
+
 /* ---------- Анімації ---------- */
 .js .reveal {
   opacity: 0;
@@ -1123,6 +1247,10 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   .formats__grid { grid-template-columns: 1fr; }
   .formats__photo { align-self: auto; min-height: 0; aspect-ratio: 4 / 3; }
   .format { grid-template-columns: 40px minmax(0, 1fr); }
+
+  .about__grid { grid-template-columns: 1fr; }
+  .about__visual { min-height: 0; aspect-ratio: 4 / 5; margin-right: 18px; }
+  .about__story { grid-template-columns: 1fr; }
   .orbit svg { max-width: 340px; }
 }
 

@@ -76,6 +76,22 @@
     });
   };
 
+  // Цифри в «Про мене» плавно нараховуються від нуля
+  const countUp = (root) => {
+    if (calm.matches) return;
+    root.querySelectorAll('[data-count]').forEach((el) => {
+      const target = Number(el.dataset.count);
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(step);
+      };
+      el.textContent = '0';
+      requestAnimationFrame(step);
+    });
+  };
+
   // Поява решти блоків при скролі
   const items = document.querySelectorAll('main > :not(.hero) .reveal');
   if (!('IntersectionObserver' in window)) {
@@ -87,6 +103,7 @@
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
       startSignals(entry.target);
+      countUp(entry.target);
       io.unobserve(entry.target);
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
