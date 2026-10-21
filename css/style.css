@@ -1086,27 +1086,20 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 .stat__label { margin-top: 12px; font-size: 15px; font-weight: 500; line-height: 1.5; }
 
-/* Шлях — три колонки на всю ширину */
+/* Шлях — три колонки в спокійній картці, як цитати в блоках 02 і 04 */
 .about__story {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(24px, 3vw, 48px);
+  gap: clamp(24px, 3.5vw, 56px);
   margin-top: clamp(64px, 8vw, 112px);
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--radius);
+  background: var(--moss-deep);
 }
 .about__story p {
-  position: relative;
-  padding-top: 24px;
-  border-top: 1px solid var(--on-dark-line);
   font-size: clamp(16px, 1.2vw, 17px);
   font-weight: 500;
   line-height: 1.7;
-}
-.about__story p::before {
-  content: "";
-  position: absolute;
-  top: -1px; left: 0;
-  width: 48px; height: 2px;
-  background: var(--lime);
 }
 
 /* ---------- Анімації ---------- */
