@@ -99,6 +99,39 @@
     });
   });
 
+  // Форма запису на розбір: Netlify Forms, відправка без перезавантаження сторінки
+  const form = document.querySelector('.form');
+  if (form) {
+    const done = document.querySelector('.form__done');
+    const error = form.querySelector('.form__error');
+    form.querySelectorAll('[required]').forEach((input) => {
+      input.addEventListener('input', () => input.classList.remove('is-invalid'));
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const invalid = [...form.querySelectorAll('[required]')].filter((i) => !i.value.trim());
+      invalid.forEach((i) => i.classList.add('is-invalid'));
+      if (invalid.length) { invalid[0].focus(); return; }
+
+      const button = form.querySelector('.form__submit');
+      button.disabled = true;
+      error.hidden = true;
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString(),
+        });
+        if (!res.ok) throw new Error(res.status);
+        form.hidden = true;
+        done.hidden = false;
+      } catch (err) {
+        error.hidden = false;
+        button.disabled = false;
+      }
+    });
+  }
+
   // Цифри в «Про мене» плавно нараховуються від нуля
   const countUp = (root) => {
     if (calm.matches) return;

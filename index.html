@@ -474,7 +474,111 @@
       </div>
     </section>
 
+    <!-- 08 / СТРАТЕГІЧНИЙ РОЗБІР -->
+    <section class="consult section--moss" id="consult">
+      <svg class="consult__sprout" aria-hidden="true"><use href="#sprout"/></svg>
+      <div class="container consult__grid">
+
+        <div class="consult__info">
+          <h2 class="h2 consult__title reveal">Що стримує наступний рівень вашого <span class="mark mark--dark">бізнесу?</span></h2>
+          <p class="consult__chips reveal">
+            <span>Безкоштовний стратегічний розбір для власників бізнесу</span>
+            <span class="consult__time">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              90 хвилин
+            </span>
+          </p>
+
+          <p class="consult__lead reveal">За 90 хвилин ви зможете:</p>
+          <ol class="outcomes reveal">
+            <li><span class="outcomes__num">01</span>Побачити, що відбувається у вашому бізнесі на рівні власника, команди та системи управління.</li>
+            <li><span class="outcomes__num">02</span>Зрозуміти, що саме стримує його розвиток.</li>
+            <li><span class="outcomes__num">03</span>Визначити, що потрібно змінити та з чого почати рух до наступного рівня.</li>
+          </ol>
+        </div>
+
+        <div class="consult__card reveal">
+          <form class="form" name="consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="consult">
+            <p class="form__hp" aria-hidden="true"><label>Не заповнюйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+            <h3 class="form__title">Запишіться на безкоштовний стратегічний розбір.</h3>
+
+            <label class="field">
+              <span class="field__label">Ім’я</span>
+              <input class="field__input" type="text" name="name" placeholder="Ваше ім’я" autocomplete="name" required>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Телефон або Telegram</span>
+              <input class="field__input" type="text" name="contact" placeholder="+380… / @username" autocomplete="tel" required>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Розмір команди</span>
+              <span class="field__select">
+                <select class="field__input" name="team">
+                  <option>до 10</option>
+                  <option>10–30</option>
+                  <option selected>30–50</option>
+                  <option>50+</option>
+                </select>
+              </span>
+            </label>
+
+            <button class="btn btn--lime btn--lg form__submit" type="submit">
+              Записатися на розбір
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="form__error" role="alert" hidden>Не вдалося надіслати заявку. Спробуйте ще раз трохи пізніше.</p>
+          </form>
+
+          <div class="form__done" hidden>
+            <span class="form__done-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            <h3 class="form__title">Дякуємо! Заявку отримано.</h3>
+            <p>Валентина зв’яжеться з вами найближчим часом, щоб узгодити час розбору.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
+
+  <!-- ПІДВАЛ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <a href="#top" class="footer__logo" aria-label="EcoMind System — на початок">
+          <img src="assets/brand/logo-ecomind-system.png" alt="EcoMind System" width="1386" height="542" loading="lazy">
+        </a>
+
+        <nav class="footer__nav" aria-label="Навігація в підвалі">
+          <a href="#approach">Підхід</a>
+          <a href="#formats">Формати</a>
+          <a href="#about">Про мене</a>
+          <a href="#cases">Кейси</a>
+          <a href="#consult">Записатися на розбір</a>
+        </nav>
+
+        <div class="footer__social">
+          <a class="social" href="https://www.instagram.com/valentyna.petrivska/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="fill"/></svg>
+          </a>
+          <!-- TODO: посилання на Telegram-канал Валентини -->
+          <a class="social" href="#" target="_blank" rel="noopener" aria-label="Telegram-канал">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l6 2.2M21 4l-3 16-7.5-6.3M21 4L9 13.2m0 0V19l3-3.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© Валентина Петрівська · EcoMind System</p>
+        <!-- TODO: телефон / email Валентини -->
+        <p class="footer__contact"><a href="#">[Телефон / email]</a></p>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/main.js" defer></script>
 </body>
