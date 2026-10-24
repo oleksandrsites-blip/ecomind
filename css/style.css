@@ -181,6 +181,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 .nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
 .nav__cta { display: none; }
+.header__cta-mobile { display: none; }
 
 /* соцмережі в шапці — тонкі кружечки в тон меню */
 .header__social {
@@ -1496,25 +1497,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .footer__contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .footer__contact a:hover { color: var(--ink); }
 
-/* =========================================================
-   Плаваюча кнопка запису (лише мобільний)
-   ========================================================= */
-.sticky-cta {
-  position: fixed;
-  z-index: 40;
-  left: var(--gutter); right: var(--gutter);
-  bottom: calc(14px + env(safe-area-inset-bottom));
-  display: none;
-  width: auto !important;
-  justify-content: space-between;
-  box-shadow: 0 14px 34px -10px rgba(29, 29, 27, .45);
-  opacity: 0;
-  transform: translateY(24px);
-  pointer-events: none;
-  transition: opacity .4s var(--ease), transform .5s var(--ease);
-}
-.sticky-cta.is-shown { opacity: 1; transform: none; pointer-events: auto; }
-
 /* ---------- Анімації ---------- */
 .js .reveal:not(.is-visible) { opacity: 0; }
 .js .reveal.is-visible { animation: reveal-in .9s var(--ease) var(--reveal-delay, 0ms) both; }
@@ -1595,7 +1577,8 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 @media (max-width: 900px) {
   .header__cta { display: none; }
   .header__social { display: none; }
-  .sticky-cta { display: inline-flex; }
+  .header__cta-mobile { display: inline-flex; margin-left: auto; position: relative; z-index: 2; }
+  .burger { margin-left: 10px; }
   .nav__social { display: flex; gap: 10px; margin-top: 20px; }
   .nav__social .hsocial { width: 48px; height: 48px; }
   .burger { display: block; position: relative; z-index: 2; }
@@ -1664,9 +1647,9 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 
   .about__grid { grid-template-columns: 1fr; }
   /* явна висота: Safari інакше рахує блок з абсолютним фото як нульовий */
-  .about__visual { min-height: 0; height: min(125vw, 640px); }
-  .about__photo { border-radius: var(--radius); -webkit-mask: none; mask: none; }
-  .about__edge, .about__edge-dot { display: none; }
+  .about__visual { min-height: 0; height: min(118vw, 600px); margin-right: 14px; }
+  .about__edge { left: 12px; }
+  .about__edge-dot { left: calc(78% + 12px - 7px); }
   .about__story { grid-template-columns: 1fr; }
 
   /* вкладки кейсів — рівний перемикач з трьох кнопок */

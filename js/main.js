@@ -10,20 +10,6 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Плаваюча кнопка запису: видна після першого екрана, ховається біля форми
-  const stickyCta = document.getElementById('sticky-cta');
-  const consult = document.getElementById('consult');
-  if (stickyCta && consult) {
-    const toggleCta = () => {
-      const pastHero = window.scrollY > window.innerHeight * 0.8;
-      const nearForm = consult.getBoundingClientRect().top < window.innerHeight * 0.85;
-      stickyCta.classList.toggle('is-shown', pastHero && !nearForm);
-    };
-    toggleCta();
-    window.addEventListener('scroll', toggleCta, { passive: true });
-    window.addEventListener('resize', toggleCta);
-  }
-
   // Мобільне меню
   const setMenu = (open) => {
     nav.classList.toggle('is-open', open);
