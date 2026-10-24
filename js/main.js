@@ -23,7 +23,7 @@
 
   // Перший екран показуємо одразу, без очікування скролу
   document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-    el.style.transitionDelay = `${i * 90}ms`;
+    el.style.setProperty('--reveal-delay', `${i * 90}ms`);
     setTimeout(() => el.classList.add('is-visible'), 30);
   });
 
@@ -162,11 +162,11 @@
       countUp(entry.target);
       io.unobserve(entry.target);
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
 
   items.forEach((el, i) => {
     // невелика затримка для елементів, що з'являються разом
-    el.style.transitionDelay = `${Math.min(i % 4, 3) * 90}ms`;
+    el.style.setProperty('--reveal-delay', `${Math.min(i % 3, 2) * 80}ms`);
     io.observe(el);
   });
 })();
