@@ -1477,6 +1477,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   font-size: 14px;
   color: var(--ink-soft);
 }
+.footer__contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .footer__contact a:hover { color: var(--ink); }
 
 /* ---------- Анімації ---------- */
