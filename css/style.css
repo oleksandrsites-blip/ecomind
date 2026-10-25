@@ -153,6 +153,17 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   padding: 18px 0;
   transition: padding .4s var(--ease), background-color .4s var(--ease), box-shadow .4s var(--ease);
 }
+/* у вбудованих браузерах (Telegram, Instagram) шапка може «відставати» від верху екрана —
+   смуга кольору шапки над нею закриває щілину, щоб не просвічувала сторінка */
+.header::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 100%;
+  height: 100vh;
+  background: var(--bg);
+  pointer-events: none;
+}
 .header.is-scrolled {
   padding: 10px 0;
   background: var(--bg);
