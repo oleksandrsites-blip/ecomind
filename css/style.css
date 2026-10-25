@@ -155,6 +155,8 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 /* у вбудованих браузерах (Telegram, Instagram) шапка може «відставати» від верху екрана —
    смуга кольору шапки над нею закриває щілину, щоб не просвічувала сторінка */
+/* відступ під системну/вбудовану панель браузера, якщо вона накриває сторінку */
+.header { padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
 .header::before {
   content: "";
   position: absolute;
@@ -165,7 +167,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   pointer-events: none;
 }
 .header.is-scrolled {
-  padding: 10px 0;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 0 10px;
   background: var(--bg);
   box-shadow: 0 10px 30px -22px rgba(29, 29, 27, .35);
 }
