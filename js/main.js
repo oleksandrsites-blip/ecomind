@@ -148,25 +148,32 @@
     });
   };
 
-  // Поява решти блоків при скролі
-  const items = document.querySelectorAll('main > :not(.hero) .reveal');
-  if (!('IntersectionObserver' in window)) {
-    items.forEach((el) => el.classList.add('is-visible'));
-    return;
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      startSignals(entry.target);
-      countUp(entry.target);
-      io.unobserve(entry.target);
-    });
-  }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+  // Поява решти блоків при скролі.
+  // Перевіряємо положення на кожному кадрі скролу: так блок з'явиться,
+  // навіть якщо швидкий свайп «перестрибнув» його повз екран.
+  let pending = [...document.querySelectorAll('main > :not(.hero) .reveal')];
+  pending.forEach((el, i) => el.style.setProperty('--reveal-delay', `${Math.min(i % 3, 2) * 80}ms`));
 
-  items.forEach((el, i) => {
-    // невелика затримка для елементів, що з'являються разом
-    el.style.setProperty('--reveal-delay', `${Math.min(i % 3, 2) * 80}ms`);
-    io.observe(el);
-  });
+  const reveal = (el) => {
+    el.classList.add('is-visible');
+    startSignals(el);
+    countUp(el);
+  };
+  let queued = false;
+  const check = () => {
+    queued = false;
+    const edge = window.innerHeight * 0.9;
+    pending = pending.filter((el) => {
+      if (el.getBoundingClientRect().top < edge) { reveal(el); return false; }
+      return true;
+    });
+    if (!pending.length) {
+      window.removeEventListener('scroll', onReveal);
+      window.removeEventListener('resize', onReveal);
+    }
+  };
+  const onReveal = () => { if (!queued) { queued = true; requestAnimationFrame(check); } };
+  window.addEventListener('scroll', onReveal, { passive: true });
+  window.addEventListener('resize', onReveal);
+  check();
 })();

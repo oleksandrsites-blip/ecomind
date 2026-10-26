@@ -57,7 +57,7 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 /* при переході з меню заголовок секції не ховається під шапкою */
-section[id] { scroll-margin-top: 64px; }
+section[id], #form { scroll-margin-top: 84px; }
 a { color: inherit; text-decoration: none; }
 p { margin: 0; }
 h1, h2, h3 { margin: 0; font-weight: 600; }
@@ -195,6 +195,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
 .nav__cta { display: none; }
 .header__cta-mobile { display: none; }
+.header__cta-mobile.btn--lime { box-shadow: none; font-weight: 700; }
 
 /* соцмережі в шапці — тонкі кружечки в тон меню */
 .header__social {
@@ -1053,7 +1054,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Cpath d='M.78 0H0V1H1C1 .6.96.22.78 0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Cpath d='M.78 0H0V1H1C1 .6.96.22.78 0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
-.about__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 20%; }
+.about__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 66% 18%; }
 .about__edge {
   position: absolute;
   top: 0; left: 18px;

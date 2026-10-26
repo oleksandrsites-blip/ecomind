@@ -1,0 +1,6 @@
+# Статичний сайт без збірки: публікуємо корінь репозиторію.
+# Функція в netlify/functions пересилає заявки з форми в Telegram.
+# Сторінку 404.html Netlify підхоплює сам.
+[build]
+  publish = "."
+  functions = "netlify/functions"
