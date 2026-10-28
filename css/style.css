@@ -1390,7 +1390,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   grid-template-columns: 44px minmax(0, 1fr);
   padding: 18px 0;
   border-bottom: 1px solid var(--on-dark-line);
-  font-size: clamp(16px, 1.25vw, 18px);
+  font-size: clamp(15px, 1.05vw, 16px);
   font-weight: 500;
   line-height: 1.55;
 }
@@ -1431,10 +1431,10 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .consult__result-text {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(17px, 1.5vw, 21px);
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: -.01em;
+  font-size: clamp(20px, 1.95vw, 27px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.015em;
 }
 .consult__result-text span { color: var(--lime); }
 
