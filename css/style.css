@@ -425,6 +425,8 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   padding: var(--section-y) 0;
   border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;
   overflow: hidden;
+  /* clip, а не лише hidden: інакше перехід за якорем #form прокручує вміст усередині секції */
+  overflow: clip;
 }
 
 .problem__grid {
@@ -1326,6 +1328,8 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   padding: var(--section-y) 0 calc(var(--section-y) + clamp(28px, 4vw, 56px));
   border-radius: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 56px) 0 0;
   overflow: hidden;
+  /* clip, а не лише hidden: інакше перехід за якорем #form прокручує вміст усередині секції */
+  overflow: clip;
 }
 .consult__sprout {
   position: absolute;
