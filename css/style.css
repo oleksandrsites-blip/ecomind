@@ -1347,36 +1347,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   align-items: center;
 }
 
-.consult__title { margin-bottom: 24px; }
-.consult__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(36px, 4vw, 52px); }
-.consult__chips span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border: 1px solid var(--on-dark-line);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.consult__chips span:first-child {
-  flex-basis: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  font-size: clamp(15px, 1.2vw, 17px);
-  font-weight: 500;
-  color: var(--lime-tint);
-}
-.consult__chips span:first-child::before {
-  content: "";
-  flex-shrink: 0;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--lime);
-}
-.consult__chips .consult__time { background: var(--lime); border-color: var(--lime); color: var(--ink); }
-.consult__time svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.consult__title { margin-bottom: 32px; }
 
 .consult__lead {
   margin-bottom: 8px;
@@ -1433,6 +1404,13 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   font-size: clamp(16px, 1.25vw, 18px);
   font-weight: 500;
   line-height: 1.55;
+}
+.consult__result-text u {
+  text-decoration: underline;
+  text-decoration-color: var(--lime);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  text-decoration-skip-ink: none;
 }
 
 /* картка з формою */
@@ -1630,8 +1608,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 
   /* Блок запису компактніший, щоб «Результат розбору» і форма вміщались в одне вікно */
   .consult { padding-top: clamp(80px, 8vw, 112px); }
-  .consult__title { margin-bottom: 18px; }
-  .consult__chips { margin-bottom: 24px; }
+  .consult__title { margin-bottom: 28px; }
   .outcomes li { padding: 10px 0; }
   .consult__result { margin-top: 16px; padding-top: 22px; padding-bottom: 22px; }
 }
