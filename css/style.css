@@ -1630,6 +1630,13 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   .hero__title { font-size: clamp(34px, min(4.4vw, 6.6vh), 64px); }
   .hero__actions { margin-top: 0; gap: 12px; }
   .btn--lg { min-height: clamp(54px, 7vh, 64px); }
+
+  /* Блок запису компактніший, щоб «Результат розбору» і форма вміщались в одне вікно */
+  .consult { padding-top: clamp(80px, 8vw, 112px); }
+  .consult__title { margin-bottom: 18px; }
+  .consult__chips { margin-bottom: 24px; }
+  .outcomes li { padding: 10px 0; }
+  .consult__result { margin-top: 16px; padding-top: 22px; padding-bottom: 22px; }
 }
 @media (max-width: 1080px) {
   .nav { gap: 24px; }
