@@ -1420,23 +1420,20 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   background: var(--lime);
 }
 .consult__result-label {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: clamp(22px, 2vw, 28px);
   font-weight: 600;
-  letter-spacing: .24em;
-  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: -.015em;
   color: var(--lime);
 }
 .consult__result-text {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(20px, 1.95vw, 27px);
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -.015em;
+  font-size: clamp(16px, 1.25vw, 18px);
+  font-weight: 500;
+  line-height: 1.55;
 }
-.consult__result-text span { color: var(--lime); }
 
 /* картка з формою */
 .consult__card {
