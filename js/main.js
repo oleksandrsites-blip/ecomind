@@ -125,6 +125,10 @@
         if (!res.ok) throw new Error(res.status);
         form.hidden = true;
         done.hidden = false;
+        // Конверсія для Google Analytics: заявку успішно надіслано
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { form_name: 'consult', team_size: form.elements.team ? form.elements.team.value : undefined });
+        }
       } catch (err) {
         error.hidden = false;
         button.disabled = false;
