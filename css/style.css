@@ -1520,6 +1520,34 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .footer__contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .footer__contact a:hover { color: var(--ink); }
 
+/* підпис розробника: тихо, але помітно */
+.footer__credit {
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.footer__credit a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 4px;
+  padding: 3px 10px 3px 12px;
+  border: 1px solid var(--ink-line);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background-color .35s var(--ease), border-color .35s var(--ease);
+}
+.footer__credit a span { color: var(--lime-deep); }
+.footer__credit svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  transition: transform .35s var(--ease);
+}
+.footer__credit a:hover { background: var(--lime); border-color: var(--lime); }
+.footer__credit a:hover span { color: var(--ink); }
+.footer__credit a:hover svg { transform: translate(2px, -2px); }
+
 /* ---------- Анімації ---------- */
 .js .reveal:not(.is-visible) { opacity: 0; }
 .js .reveal.is-visible { animation: reveal-in .9s var(--ease) var(--reveal-delay, 0ms) both; }
