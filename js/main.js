@@ -99,7 +99,7 @@
     });
   });
 
-  // Форма запису на розбір: Netlify Forms, відправка без перезавантаження сторінки
+  // Форма запису на розбір: відправка без перезавантаження сторінки (Cloudflare-функція, запасний шлях — Netlify Forms)
   const form = document.querySelector('.form');
   if (form) {
     const done = document.querySelector('.form__done');
@@ -116,13 +116,19 @@
       const button = form.querySelector('.form__submit');
       button.disabled = true;
       error.hidden = true;
-      try {
-        const res = await fetch('/', {
+      const body = new URLSearchParams(new FormData(form)).toString();
+      const send = async (url) => {
+        const res = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString(),
+          body,
         });
         if (!res.ok) throw new Error(res.status);
+      };
+      try {
+        // Cloudflare: функція /api/consult шле заявку в Telegram.
+        // Якщо її немає (сайт ще на Netlify) — запасний шлях через Netlify Forms.
+        try { await send('/api/consult'); } catch (x) { await send('/'); }
         form.hidden = true;
         done.hidden = false;
         // Конверсія для Google Analytics: заявку успішно надіслано
