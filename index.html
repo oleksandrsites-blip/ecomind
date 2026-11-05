@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261030a">
+  <link rel="stylesheet" href="css/style.css?v=20261105a">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -525,8 +525,7 @@
         </div>
 
         <div class="consult__card reveal" id="form">
-          <form class="form" name="consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-            <input type="hidden" name="form-name" value="consult">
+          <form class="form" name="consult" method="POST" action="/api/consult" novalidate>
             <p class="form__hp" aria-hidden="true"><label>Не заповнюйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
             <h3 class="form__title">Запишіться на безкоштовний стратегічний розбір.</h3>
@@ -538,7 +537,8 @@
 
             <label class="field">
               <span class="field__label">Телефон або Telegram</span>
-              <input class="field__input" type="text" name="contact" placeholder="+380… / @username" autocomplete="tel" required>
+              <input class="field__input" type="text" name="contact" placeholder="+380 __ ___ __ __ або @нік" autocomplete="tel" required>
+              <span class="field__hint" hidden>Перевірте номер: потрібно 9 цифр після +380</span>
             </label>
 
             <label class="field">
@@ -613,6 +613,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20261030a" defer></script>
+  <script src="js/main.js?v=20261105a" defer></script>
 </body>
 </html>

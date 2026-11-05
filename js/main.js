@@ -99,36 +99,67 @@
     });
   });
 
-  // Форма запису на розбір: відправка без перезавантаження сторінки (Cloudflare-функція, запасний шлях — Netlify Forms)
+  // Форма запису на розбір: відправка без перезавантаження сторінки (Cloudflare-функція /api/consult → Telegram)
   const form = document.querySelector('.form');
   if (form) {
     const done = document.querySelector('.form__done');
     const error = form.querySelector('.form__error');
+    const contact = form.elements.contact;
+    const hint = form.querySelector('.field__hint');
+
+    // Поле «Телефон або Telegram»: якщо людина вводить цифри — маска +380 97 123 45 67,
+    // якщо @username чи літери — залишаємо як є
+    const isPhone = (value) => /^[\d+(]/.test(value.trim());
+    const phoneDigits = (value) => {
+      const digits = value.replace(/\D/g, '');
+      if (digits.length <= 3 && '380'.startsWith(digits)) return { prefix: digits, rest: '' };
+      if (digits.startsWith('380')) return { prefix: '380', rest: digits.slice(3, 12) };
+      if (digits.startsWith('0')) return { prefix: '380', rest: digits.slice(1, 10) };
+      return { prefix: '380', rest: digits.slice(0, 9) };
+    };
+    const formatPhone = ({ prefix, rest }) => {
+      if (prefix !== '380') return prefix ? `+${prefix}` : '';
+      const parts = [rest.slice(0, 2), rest.slice(2, 5), rest.slice(5, 7), rest.slice(7, 9)].filter(Boolean);
+      return ['+380', ...parts].join(' ');
+    };
+    let prevRest = '';
+    contact.addEventListener('input', (e) => {
+      if (!isPhone(contact.value)) { prevRest = ''; return; }
+      const phone = phoneDigits(contact.value);
+      // Backspace по пробілу маски: прибираємо цифру перед ним, щоб курсор не «застрягав»
+      if (e.inputType && e.inputType.startsWith('delete') && phone.rest === prevRest && phone.rest) {
+        phone.rest = phone.rest.slice(0, -1);
+      }
+      prevRest = phone.rest;
+      contact.value = formatPhone(phone);
+    });
+    const phoneIncomplete = () => isPhone(contact.value) && phoneDigits(contact.value).rest.length < 9;
+
     form.querySelectorAll('[required]').forEach((input) => {
       input.addEventListener('input', () => input.classList.remove('is-invalid'));
     });
+    contact.addEventListener('input', () => { hint.hidden = true; });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const invalid = [...form.querySelectorAll('[required]')].filter((i) => !i.value.trim());
+      if (!invalid.includes(contact) && phoneIncomplete()) {
+        invalid.push(contact);
+        hint.hidden = false;
+      }
       invalid.forEach((i) => i.classList.add('is-invalid'));
       if (invalid.length) { invalid[0].focus(); return; }
 
       const button = form.querySelector('.form__submit');
       button.disabled = true;
       error.hidden = true;
-      const body = new URLSearchParams(new FormData(form)).toString();
-      const send = async (url) => {
-        const res = await fetch(url, {
+      try {
+        const res = await fetch('/api/consult', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
+          body: new URLSearchParams(new FormData(form)).toString(),
         });
         if (!res.ok) throw new Error(res.status);
-      };
-      try {
-        // Cloudflare: функція /api/consult шле заявку в Telegram.
-        // Якщо її немає (сайт ще на Netlify) — запасний шлях через Netlify Forms.
-        try { await send('/api/consult'); } catch (x) { await send('/'); }
         form.hidden = true;
         done.hidden = false;
         // Конверсія для Google Analytics: заявку успішно надіслано

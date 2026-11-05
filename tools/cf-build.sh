@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Збірка для Cloudflare Pages: у public/ кладемо лише файли сайту
-# (без netlify.toml, функцій і службових файлів). Функції Cloudflare бере з functions/.
+# (без функцій і службових файлів). Функції Cloudflare бере з functions/.
 set -euo pipefail
 rm -rf public
 mkdir -p public

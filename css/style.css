@@ -1434,6 +1434,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .field__input::placeholder { color: rgba(29, 29, 27, .38); }
 .field__input:focus { outline: none; border-color: var(--lime-deep); box-shadow: 0 0 0 4px var(--lime-tint); }
 .field__input.is-invalid { border-color: #B54A3B; }
+.field__hint { font-size: 13px; color: #B54A3B; }
 .field__select { position: relative; display: block; }
 .field__select::after {
   content: "";
