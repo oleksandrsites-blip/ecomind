@@ -344,6 +344,9 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   transform-origin: 50% 0;
   animation: photo-in 1.8s var(--ease) .35s backwards;
 }
+/* <picture> лише вибирає файл (WebP потрібного розміру) — на розкладку не впливає */
+picture { display: contents; }
+
 /* «шторка» кольору бренду, що відкриває фото вздовж вигину */
 .hero__photo::after {
   content: "";

@@ -4,6 +4,6 @@
 set -euo pipefail
 rm -rf public
 mkdir -p public
-cp index.html 404.html robots.txt sitemap.xml public/
+cp index.html 404.html robots.txt sitemap.xml _headers public/
 cp -R css js assets public/
 find public -name '.DS_Store' -delete

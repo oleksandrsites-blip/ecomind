@@ -41,9 +41,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261105a">
+  <link rel="stylesheet" href="css/style.css?v=20261105b">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -65,7 +65,7 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#top" class="header__logo" aria-label="EcoMind System — на початок">
-        <img src="assets/brand/logo-ecomind-system.png" alt="EcoMind System" width="1386" height="542">
+        <img src="assets/brand/logo-ecomind-system.png" alt="EcoMind System" width="360" height="141">
       </a>
 
       <nav class="nav" id="nav" aria-label="Основна навігація">
@@ -125,7 +125,11 @@
         <span class="hero__edge-dot" aria-hidden="true"></span>
 
         <figure class="hero__photo">
-          <img src="assets/img/IMG_0576.jpg" alt="Валентина Петрівська, бізнес-коуч для власників бізнесу" width="2200" height="1467" fetchpriority="high">
+          <picture>
+            <source media="(max-width: 640px)" type="image/webp" srcset="assets/img/IMG_0576-sq-760.webp 760w, assets/img/IMG_0576-sq-1100.webp 1100w, assets/img/IMG_0576-sq-1466.webp 1466w" sizes="130vw">
+            <source type="image/webp" srcset="assets/img/IMG_0576-1100.webp 1100w, assets/img/IMG_0576-1600.webp 1600w, assets/img/IMG_0576-2200.webp 2200w" sizes="110vw">
+            <img src="assets/img/IMG_0576.jpg" alt="Валентина Петрівська, бізнес-коуч для власників бізнесу" width="2200" height="1467" fetchpriority="high">
+          </picture>
         </figure>
 
         <div class="hero__levels" aria-label="Три рівні EcoMind">
@@ -348,7 +352,10 @@
 
         <div class="formats__grid">
           <figure class="formats__photo reveal">
-            <img src="assets/img/IMG_0427.jpg" alt="Валентина Петрівська під час сесії з клієнтом" width="1200" height="1800" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="assets/img/IMG_0427-600.webp 600w, assets/img/IMG_0427-900.webp 900w, assets/img/IMG_0427-1200.webp 1200w" sizes="(max-width: 900px) 95vw, 38vw">
+              <img src="assets/img/IMG_0427.jpg" alt="Валентина Петрівська під час сесії з клієнтом" width="1200" height="1800" loading="lazy">
+            </picture>
           </figure>
 
           <div class="formats__main">
@@ -397,7 +404,10 @@
         <div class="about__grid">
           <div class="about__visual reveal">
             <figure class="about__photo">
-              <img src="assets/img/IMG_0498.jpg" alt="Валентина Петрівська" width="1200" height="1800" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/img/IMG_0498-600.webp 600w, assets/img/IMG_0498-900.webp 900w, assets/img/IMG_0498-1200.webp 1200w" sizes="(max-width: 900px) 112vw, 52vw">
+                <img src="assets/img/IMG_0498.jpg" alt="Валентина Петрівська" width="1200" height="1800" loading="lazy">
+              </picture>
             </figure>
             <svg class="about__edge" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
               <path d="M78 0 C96 22 100 60 100 100"/>
@@ -577,7 +587,7 @@
     <div class="container">
       <div class="footer__top">
         <a href="#top" class="footer__logo" aria-label="EcoMind System — на початок">
-          <img src="assets/brand/logo-ecomind-system.png" alt="EcoMind System" width="1386" height="542" loading="lazy">
+          <img src="assets/brand/logo-ecomind-system.png" alt="EcoMind System" width="360" height="141" loading="lazy">
         </a>
 
         <nav class="footer__nav" aria-label="Навігація в підвалі">
@@ -613,6 +623,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20261105a" defer></script>
+  <script src="js/main.js?v=20261105b" defer></script>
 </body>
 </html>
